@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+         <!-- Bootstrap CSS -->
+         {% load static %}     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body>
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                <h4>{{message}}</h4>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div>
+            <h1>Registration</h1>
+            <form action='/register' method='POST'>
+                {% csrf_token %}
+                <div>
+                    First Name :<input type = "text" name="first_name" id="first_name" >
+                    Last Name :<input type = "text" name="last_name" id="last_name" >
+                    Email :<input type = "text" name="email" id="email" >
+                    Password :<input type = "password" name="password" id="password" >
+                    Confirm Pw :<input type = "password" name="confirm_password" id="confirm_password" >
+                    <!-- <button>Register</button> -->
+                    Date:<input type='date'  id='date' name='date'>
+                </div>
+                <input type = "submit" value ="register">
+            </form>    
+        </div>
+
+        <div>
+            <h1>Login</h1>
+            <form action='/login' method='POST'>
+                {% csrf_token %}
+                <div>
+                    Email :<input type = "text" name="email" id="email" >
+                    Password :<input type = "password" name="password" id="password" >
+                    <!-- <button>Login</button> -->
+
+                </div>
+                <input type = "submit" value ="login">
+
+            </form>
+
+        </div>
+    </body>
+</html>
