@@ -32,8 +32,8 @@ def register(request):
          #hashing pswd
         hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
         user = User.objects.create(first_name = first_name, last_name = last_name, email = email, password = hashed_password )
-        if 'id' not in request.session:
-                request.session['id'] = user.id
+        
+        request.session['id'] = user.id
         #session
         
 
@@ -71,11 +71,13 @@ def login(request):
         return redirect('/')
 
     else:
+        user = User.objects.get(email= request.POST['email'])
+
+        request.session['id'] = user.id
         
         #session
-        if 'id' not in request.session:
-                request.session['id'] = user.id
-        #session
+       
+     
         
         
         return redirect('/success')
@@ -94,3 +96,11 @@ def success(request):
     
     # return render(request,'logreg/success.html',{"user" : User.objects.get(id=id)})
     return render(request,'logreg/success.html',context)
+
+
+
+
+
+def logout(request):
+    request.session.clear()
+    return redirect('/')

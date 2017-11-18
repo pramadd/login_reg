@@ -9,8 +9,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
+        
         <p class="text-success">Success! Welcome {{user.first_name}}</p>
         <!-- <h1>Success! Welcome {{request.session.fname}} </h1> -->
-       
+        <form action='/' method='POST'>
+            {% csrf_token %}
+            <button>logout</button>
+        </form>
     </body>
 </html>
