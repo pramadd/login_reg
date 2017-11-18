@@ -10,7 +10,7 @@
     </head>
     <body>
         
-        <p class="text-success">Success! Welcome {{user.first_name}}</p>
+        <p class="text-success">Success! Welcome {{user.first_name}}{{user.last_name}}</p>
         <!-- <h1>Success! Welcome {{request.session.fname}} </h1> -->
         <form action='/' method='POST'>
             {% csrf_token %}

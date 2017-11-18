@@ -19,21 +19,27 @@
         </div>
 
         <div>
-            <h1>Registration</h1>
+            <h1>Registration</h1><br>
             <form action='/register' method='POST'>
                 {% csrf_token %}
                 <div>
-                    First Name :<input type = "text" name="first_name" id="first_name" >
-                    Last Name :<input type = "text" name="last_name" id="last_name" >
-                    Email :<input type = "text" name="email" id="email" >
-                    Password :<input type = "password" name="password" id="password" >
-                    Confirm Pw :<input type = "password" name="confirm_password" id="confirm_password" >
+                    <div> First Name : <input type = "text" name="first_name" id="first_name" ></div><br>
+                    <div> Last Name :  <input type = "text" name="last_name" id="last_name" ></div><br>
+                    <div> Email :      <input type = "text" name="email" id="email" ></div><br>
+                    <div> Password :   <input type = "password" name="password" id="password" ></div><br>
+                    <div> Confirm Pw: <input type = "password" name="confirm_password" id="confirm_password" ></div><br>
+                    <div> Date:        <input type='date'  id='date' name='date'></div><br>
                     <!-- <button>Register</button> -->
-                    Date:<input type='date'  id='date' name='date'>
+                    
                 </div>
+                <br>
+                
                 <input type = "submit" value ="register">
             </form>    
         </div>
+        <br>
+        <br>
+
 
         <div>
             <h1>Login</h1>
